@@ -38,7 +38,7 @@ const PredictionsChart: FC<PredictionsChartsProps> = ({
       <FlexBetween m="1rem 2.5rem" gap="1rem">
         <Box>
           <Typography variant="h3">Revenue and Predictions</Typography>
-          <Typography variant="h6">
+          <Typography variant="h5">
             Charted revenue and predicted revenued based on a simple linear
             regression model
           </Typography>

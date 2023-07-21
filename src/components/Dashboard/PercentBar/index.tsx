@@ -25,7 +25,7 @@ const PercentBar: FC<PercentBarProps> = ({ palette }) => {
           width="40%"
         ></Box>
       </Box>
-      <Typography margin="0 1rem" variant="h6">
+      <Typography margin="0 1rem" variant="h5">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nisi
         nesciunt distinctio vero ratione ipsum blanditiis fugit, eos fuga saepe
         vel expedita, sed alias veritatis nihil similique dicta? Minus,
