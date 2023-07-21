@@ -50,21 +50,21 @@ const CampaingsChart: FC<CampaingsChartProps> = ({
           </Pie>
         </PieChart>
         <Box ml="-0.7rem" flexBasis="40%" textAlign="center">
-          <Typography variant="h5">Target Sales</Typography>
+          <Typography variant="h4">Target Sales</Typography>
           <Typography m="0.3rem 0" variant="h3" color={palette.primary[300]}>
             83
           </Typography>
-          <Typography variant="h6">
+          <Typography variant="h5">
             Finance goals of the campaign that is desire
           </Typography>
         </Box>
         <Box flexBasis="40%">
-          <Typography variant="h5">Loses in Revenue</Typography>
-          <Typography variant="h6">Losses are down 25%</Typography>
-          <Typography mt="0.4rem" variant="h5">
+          <Typography variant="h4">Loses in Revenue</Typography>
+          <Typography variant="h5">Losses are down 25%</Typography>
+          <Typography mt="0.4rem" variant="h4">
             Profit Margins
           </Typography>
-          <Typography variant="h6">
+          <Typography variant="h5">
             Margins are up by 30% from last month.
           </Typography>
         </Box>
