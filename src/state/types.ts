@@ -55,3 +55,58 @@ export interface GetTransactionsResponse {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface RevenueExpenses {
+  name: string;
+  revenue: number;
+  expenses: number;
+}
+
+export interface RevenueProfits {
+  name: string;
+  revenue: number;
+  profit: string;
+}
+
+export interface Revenue {
+  name: string;
+  revenue: number;
+}
+
+export interface OperationalExpenses {
+  name: string;
+  "Operational Expenses": number;
+  "Non Operational Expenses": number;
+}
+
+export interface ExpenseBreakdown {
+  name: string;
+  value: string | number;
+}
+
+export interface Predictions {
+  name: string;
+  "Actual Revenue": number;
+  "Regression Line": number;
+  "Predicted Revenue": number;
+}
+
+export interface GetKpisResponseTransformed {
+  revenueExpenses: RevenueExpenses[];
+  revenueProfits: RevenueProfits[];
+  revenue: Revenue[];
+  operationalExpenses: OperationalExpenses[];
+  expenseBreakDownData: ExpenseBreakdown[][];
+  predctionsData: Predictions[];
+}
+
+export interface ProductExpense {
+  id: string;
+  price: number;
+  expense: number;
+}
+
+export interface GetProductsResponseTransformed {
+  products: GetProductsResponse[];
+  productExpenseData: ProductExpense[];
+}

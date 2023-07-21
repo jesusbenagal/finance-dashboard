@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useTheme } from "@mui/material";
 
 import { useGetKpisQuery } from "@/state/api";
@@ -10,50 +9,14 @@ import RevenueByMonthChart from "@/components/Dashboard/RevenueByMonthChart";
 const Row1 = () => {
   const { palette } = useTheme();
 
-  const { data: kpisData } = useGetKpisQuery();
+  const { data } = useGetKpisQuery();
 
-  const revenuesExpenses = useMemo(() => {
-    return (
-      kpisData &&
-      kpisData[0].monthlyData.map(({ month, revenue, expenses }) => {
-        return {
-          name: month.substring(0, 3),
-          revenue,
-          expenses,
-        };
-      })
-    );
-  }, [kpisData]);
-
-  const revenueProfits = useMemo(() => {
-    return (
-      kpisData &&
-      kpisData[0].monthlyData.map(({ month, revenue, expenses }) => {
-        return {
-          name: month.substring(0, 3),
-          revenue,
-          profit: (revenue - expenses).toFixed(2),
-        };
-      })
-    );
-  }, [kpisData]);
-
-  const revenue = useMemo(() => {
-    return (
-      kpisData &&
-      kpisData[0].monthlyData.map(({ month, revenue }) => {
-        return {
-          name: month.substring(0, 3),
-          revenue,
-        };
-      })
-    );
-  }, [kpisData]);
+  const { revenue, revenueExpenses, revenueProfits } = data ?? {};
 
   return (
     <>
       <RevenueAndExpensesChart
-        revenuesExpenses={revenuesExpenses ?? []}
+        revenuesExpenses={revenueExpenses ?? []}
         palette={palette}
       />
       <ProfitsAndRevenuesChart

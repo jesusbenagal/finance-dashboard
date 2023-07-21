@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useTheme } from "@mui/material";
 
 import {
@@ -6,6 +5,7 @@ import {
   useGetProductsQuery,
   useGetTransactionsQuery,
 } from "@/state/api";
+
 import ProductsDatagrid from "@/components/Dashboard/ProductsDatagrid";
 import OrdersDatagrid from "@/components/Dashboard/OrdersDatagrid";
 import ExpenseBreakdownChart from "@/components/Dashboard/ExpenseBreakdownChart";
@@ -19,35 +19,18 @@ const Row3 = () => {
   const { data: productData } = useGetProductsQuery();
   const { data: transactionData } = useGetTransactionsQuery();
 
-  const pieChartData = useMemo(() => {
-    if (kpiData) {
-      const totalExpenses = kpiData[0].totalExpenses;
-      return Object.entries(kpiData[0].expensesByCategory).map(
-        ([key, value]) => {
-          return [
-            {
-              name: key,
-              value: value as string,
-            },
-            {
-              name: `${key} of Total`,
-              value: totalExpenses - value,
-            },
-          ];
-        }
-      );
-    }
-  }, [kpiData]);
+  const { expenseBreakDownData } = kpiData ?? {};
+  const { products } = productData ?? {};
 
   return (
     <>
-      <ProductsDatagrid palette={palette} productData={productData ?? []} />
+      <ProductsDatagrid palette={palette} productData={products ?? []} />
       <OrdersDatagrid
         palette={palette}
         transactionData={transactionData ?? []}
       />
       <ExpenseBreakdownChart
-        pieChartData={pieChartData ?? []}
+        pieChartData={expenseBreakDownData ?? []}
         pieColors={pieColors}
       />
       <PercentBar palette={palette} />
